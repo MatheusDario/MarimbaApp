@@ -12,6 +12,22 @@ class MarimbaApp extends StatelessWidget {
     player.play(AssetSource('nota$numNotas.wav'));
   }
 
+  Expanded criarBtn({required Color cor, required int numNota}) {
+    return Expanded(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: cor, // Background color
+        ),
+        onPressed: () {
+          tocarSom(numNota);
+        },
+        child: const SizedBox(
+          width: 100.0,
+          height: 50.0,
+        ),
+      ),
+    );
+  }
 
   MarimbaApp({super.key});
 
@@ -21,122 +37,19 @@ class MarimbaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.green, // Background color
-                      ),
-                      onPressed: () {
-                       tocarSom(1);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // Background color
-                      ),
-                      onPressed: () {
-                        tocarSom(2);
-                      },
-                      child: Container(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.yellow, // Background color
-                      ),
-                      onPressed: () {
-                        tocarSom(3);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red, // Background color
-                      ),
-                      onPressed: () {
-                       tocarSom(4);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.grey, // Background color
-                      ),
-                      onPressed: () {
-                        tocarSom(5);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.purple, // Background color
-                      ),
-                      onPressed: () {
-                        tocarSom(6);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.brown, // Background color
-                      ),
-                      onPressed: () {
-                       tocarSom(7);
-                      },
-                      child: const SizedBox(
-                        width: 100.0,
-                        height: 50.0,
-                      ),
-                    ),
-                  ],
-                ),
+                criarBtn(cor: Colors.teal, numNota: 1),
+                criarBtn(cor: Colors.blue, numNota: 2),
+                criarBtn(cor: Colors.yellow, numNota: 3),
+                criarBtn(cor: Colors.red, numNota: 4),
+                criarBtn(cor: Colors.grey, numNota: 5),
+                criarBtn(cor: Colors.purple, numNota: 6),
+                criarBtn(cor: Colors.brown, numNota: 7),
               ],
             ),
           ),
